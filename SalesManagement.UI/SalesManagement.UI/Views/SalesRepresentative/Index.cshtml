@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SalesManagement.BOL.SalesRepresentative>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-4">
+        <h3>Sales Representative Portal</h3>
+        <br />
+        <a type="button" class="btn btn-primary" href="@Url.Action("SalesRepresentativeForm")">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span>Create New</span>
+        </a>
+    </div>
+</div>
+
+<br />
+<table class="table table-hover table-condensed">
+    <tr class="table-header">
+        <th>
+            @Html.DisplayNameFor(m => m.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.TelephoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.JoinedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.WorkRoute.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Comment)
+        </th>
+        <th>
+
+        </th>
+        <th>
+
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(m => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.TelephoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.JoinedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.WorkRoute.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Comment)
+        </td>
+        <td style="width:400px">
+            <div class="btn-group" role="group">
+                <a type="button" class="btn btn-success btn-sm" href="@Url.Action("SalesRepresentativeDetails", new { Id = item.Id })">
+                    <span class="glyphicon glyphicon-list"></span>
+
+                </a>
+
+                <a type="button" class="btn btn-primary btn-sm" href="@Url.Action("Edit", new { Id = item.Id })">
+                    <span class="glyphicon glyphicon-pencil"></span>
+
+                </a>
+
+                <a type="button" class="btn btn-danger btn-sm" href="@Url.Action("Delete",  new { Id = item.Id })">
+                    <span class="glyphicon glyphicon-trash"></span>
+
+                </a>
+            </div>
+
+        </td>
+    </tr>
+    }
+</table>

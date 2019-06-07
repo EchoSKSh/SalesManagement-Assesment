@@ -1,0 +1,32 @@
+﻿@model SalesManagement.BOL.WorkRoute
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Work Route</h2>
+
+@using (Html.BeginForm("Delete", "WorkRoute"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+
+
+
+
+    @Html.HiddenFor(m => m.Id)
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    <a type="button" class="btn btn-primary" href="@Url.Action("Index")">
+        <span class="glyphicon glyphicon-list"></span>
+        <span>Back To List</span>
+    </a>
+
+
+
+}
+
